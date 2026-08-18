@@ -1,0 +1,57 @@
+<%- include('partials/header.ejs') %>
+
+  <!-- Top Header Title -->
+  <h1 class="app-title">CONTACT APP</h1>
+
+  <!-- Form Container Card -->
+  <div class="card form-card">
+    
+    <!-- Card Header Banner -->
+    <div class="card-header">
+      <h2>Add New Contact</h2>
+    </div>
+
+    <!-- Form Body Section -->
+    <form action="/add-contact" method="POST" class="form-body">
+      
+      <!-- First Name Field -->
+      <div class="form-group">
+        <label for="first_name">First Name</label>
+        <input type="text" id="first_name" name="first_name" required>
+      </div>
+
+      <!-- Last Name Field -->
+      <div class="form-group">
+        <label for="last_name">Last Name</label>
+        <input type="text" id="last_name" name="last_name" required>
+      </div>
+
+      <!-- Email Field -->
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <!-- Phone Field -->
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" name="phone" required>
+      </div>
+
+      <!-- Address Field (Textarea) -->
+      <div class="form-group align-top">
+        <label for="address">Address</label>
+        <textarea id="address" name="address" rows="4"></textarea>
+      </div>
+
+      <!-- Action Buttons Row -->
+      <div class="form-actions">
+        <button type="submit" class="btn-save">Save</button>
+        <a href="/" class="btn-cancel">Cancel</a>
+      </div>
+
+    </form>
+
+  </div>
+
+<%- include('partials/footer.ejs') %>

@@ -1,0 +1,14 @@
+<%- include('partials/header.ejs') %>
+    <!-- Table Section -->
+    <div class="table-responsive">
+        <h2 class="mb-0">500 Error</h2>
+    </div>
+    <div class="card-body">
+        <% if(message){ %>
+            <h1><%= message  %></h1>
+            <% }else{%>
+                <h1>Internal Server Error.</h1>
+                <% } %>
+    </div>
+    </div>
+    <%- include('partials/footer.ejs') %>

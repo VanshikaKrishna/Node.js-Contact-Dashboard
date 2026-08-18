@@ -1,0 +1,77 @@
+<%- include('partials/header.ejs') %>
+    <!-- Table Section -->
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th class="col-num">#</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th class="col-actions">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Row 1 -->
+                 <%  var srno = counter %>
+                <% contacts.forEach((contact, index)=> { %>
+                    <tr>
+                        <!-- Dynamically increments row number starting from 1 -->
+                        <td class="col-num">
+                            <%= srno++ %>
+                        </td>
+                        <td>
+                            <%= contact.first_name %>
+                        </td>
+                        <td>
+                            <%= contact.last_name %>
+                        </td>
+                        <td style="color: #4b5563;">
+                            <%= contact.email %>
+                        </td>
+                        <td>
+                            <%= contact.phone %>
+                        </td>
+                        <td class="col-actions">
+                            <div class="actions-flex">
+                                <!-- Appends the unique contact ID to your server routes -->
+                                <a href="/show-contact/<%= contact._id %>" class="action-btn btn-view"
+                                    title="View">👁</a>
+                                <a href="/update-contact/<%= contact._id %>" class="action-btn btn-edit"
+                                    title="Edit">✏</a>
+                                <a href="/delete-contact/<%= contact._id %>" class="action-btn btn-delete"
+                                    title="Delete">✕</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <% }) %>
+
+                        <!-- Row end -->
+            </tbody>
+        </table>
+
+        <nav aria-label="Page  justify-content-center">
+            <ul class="pagination">
+                <% let disableClass=hasPrevPage ? "" : "disabled" %>
+                    <li class="page-item <%= disableClass %>">
+                        <a class="page-link" href="/?page=<%= prevPage  %>">Previous</a>
+                    </li>
+                    <% for(let i=1; i <=totalPages; i++){
+                        let activeClass = currentPage == i ? "active" : "" 
+
+                        %>
+                        <li class="page-item <%= activeClass %>"><a class="page-link" href="/?page=<%= i  %>">
+                                <%= i %>
+                            </a></li>
+                        <% } %>
+
+                            <% let disableClass2=hasNextPage ? "" : "disabled" %>
+                                <li class="page-item <%= disableClass2 %>">
+                                    <a class="page-link" href="/?page=<%= nextPage  %>">Next</a>
+                                </li>
+            </ul>
+        </nav>
+    </div>
+    </div>
+    <%- include('partials/footer.ejs') %>

@@ -1,0 +1,61 @@
+<%- include('partials/header.ejs') %>
+
+  <!-- Top Header Title -->
+  <h1 class="app-title">CONTACT APP</h1>
+
+  <!-- Details Container Card -->
+  <div class="card details-card">
+    
+    <!-- Card Header Banner -->
+    <div class="card-header">
+      <h2>Contact Details</h2>
+    </div>
+
+    <!-- Details Body Section -->
+    <div class="details-body">
+      
+      <!-- First Name -->
+      <div class="details-group">
+        <span class="details-label">First Name</span>
+        <span class="details-value"><%= contact.first_name %></span>
+      </div>
+
+      <!-- Last Name -->
+      <div class="details-group">
+        <span class="details-label">Last Name</span>
+        <span class="details-value"><%= contact.last_name  %></span>
+      </div>
+
+      <!-- Email -->
+      <div class="details-group">
+        <span class="details-label">Email</span>
+        <span class="details-value text-muted"><%= contact.email  %>/span>
+      </div>
+
+      <!-- Phone -->
+      <div class="details-group">
+        <span class="details-label">Phone</span>
+        <span class="details-value"><%= contact.phone  %></span>
+      </div>
+
+      <!-- Address -->
+      <div class="details-group align-top">
+        <span class="details-label">Address</span>
+        <span class="details-value text-muted"><%= contact.address  %></span>
+      </div>
+
+      <!-- Horizontal Divider Line -->
+      <hr class="details-divider">
+
+      <!-- Action Buttons Row -->
+      <div class="details-actions">
+        <a href="/contacts/edit/<%= contact._id  %>" class="btn-action btn-teal">Edit</a>
+        <a href="/contacts/delete/<%= contact._id  %>" class="btn-action btn-danger-outline">Delete</a>
+        <a href="/" class="btn-action btn-cancel">Cancel</a>
+      </div>
+
+    </div>
+
+  </div>
+
+<%- include('partials/footer.ejs') %>
